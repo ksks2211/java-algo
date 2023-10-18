@@ -1,12 +1,12 @@
 package org.example.sorting;
 
+import java.util.Arrays;
+
 /**
  * @author rival
  * @since 2023-09-30
  */
 public class IntArraySorter {
-
-
     private static void swap(int[] arr, int i, int j) {
         if (i == j) return;
 
@@ -16,6 +16,8 @@ public class IntArraySorter {
     }
 
 
+
+    // Bubble Sort
     public static void bubbleSort(int[] arr) {
         boolean isSorted;
         for (int i = 0; i < arr.length; i++) {
@@ -29,6 +31,8 @@ public class IntArraySorter {
             if(isSorted)break;
         }
     }
+
+    // Selection Sort
 
     public static void selectionSort(int[] arr) {
         int min_index;
@@ -46,6 +50,7 @@ public class IntArraySorter {
     }
 
 
+    // Insertion Sort
     public static void insertionSort(int[] arr) {
         int key, key_index;
 
@@ -62,13 +67,12 @@ public class IntArraySorter {
     }
 
 
+    // Shell Sort
     public static void shellSort(int[] arr){
         for(int gap=arr.length/2;gap>0;gap/=2){
             insertionSortWithGap(arr,gap);
         }
     }
-
-
 
     private static void insertionSortWithGap(int[] arr, int gap){
 
@@ -79,6 +83,131 @@ public class IntArraySorter {
                 arr[key_index] = arr[key_index-gap];
             }
             if(i!= key_index)arr[key_index] = key;
+        }
+    }
+
+
+
+    // Quick Sort
+    public static void quickSort(int[] arr){
+        quickSort(arr, 0, arr.length-1);
+    }
+
+    private static void quickSort(int[] arr, int low, int high){
+        if(low < high){
+            int pivotIndex = partition(arr, low, high);
+            quickSort(arr,low, pivotIndex-1);
+            quickSort(arr,pivotIndex+1, high);
+        }
+    }
+
+
+    // Partition and return pivotIndex
+    private static int partition(int[] arr, int low, int high){
+        int pivot = arr[high];
+
+        int i = low -1;
+
+//         low ~ i 까지 pivot 보다 작거나 같게
+//         i+1 ~ high-1 까지는 pivot 보다 크게
+        for(int j=low; j<high;j++){
+            if(arr[j]<=pivot){
+                i++;
+                swap(arr,i,j);
+            }
+        }
+
+//         low ~ i 까지는 pivot 보다 작거나 같게
+//         i+1 은 pivot
+//         i+2 ~ high 는 pivot 보다 크게
+        swap(arr,i+1,high);
+        return i+1;
+    }
+
+    // Heap Sort
+    public static void heapSort(int[] arr){
+        // Heapify to Max-Heap
+        for(int i = arr.length/2 -1 ;i >=0 ; i--){
+            maxHeapify(arr,i,arr.length);
+        }
+
+
+        //
+        for(int size = arr.length-1 ; size >0 ; size--){
+          swap(arr,size,0);
+          maxHeapify(arr,0,size);
+        }
+    }
+
+    private static void maxHeapify(int[] arr, int curIdx, int size){
+
+        int maxIdx,leftIdx,rightIdx;
+
+        while ((leftIdx=2*curIdx+1)<size) {
+            maxIdx = curIdx;
+            rightIdx = leftIdx+1;
+
+            if (arr[leftIdx] > arr[maxIdx]) {
+                maxIdx = leftIdx;
+            }
+
+            if (rightIdx < size && arr[rightIdx] > arr[maxIdx]) {
+                maxIdx = rightIdx;
+            }
+
+            if (curIdx == maxIdx) break;
+
+            swap(arr, curIdx, maxIdx);
+            curIdx = maxIdx;
+        }
+    }
+
+
+    // Merge Sort
+
+    public static void mergeSort(int[] arr){
+        mergeSort(arr,0,arr.length-1);
+    }
+
+
+    private static void mergeSort(int[] arr, int left, int right){
+        if(left<right){
+            int middle = left + (right-left)/2;
+            mergeSort(arr,left,middle);
+            mergeSort(arr,middle+1,right);
+            merge(arr,left,middle,right);
+        }
+    }
+
+
+    private static void merge(int[] arr, int left, int middle, int right){
+
+        int leftArrSize = middle - left +1;
+        int rightArrSize = right - middle;
+
+        int[] leftArr = Arrays.copyOfRange(arr,left,middle+1);
+        int[] rightArr = Arrays.copyOfRange(arr,middle+1,right+1);
+
+        int i=0,j=0,k=left;
+
+
+        while(i<leftArrSize && j <rightArrSize){
+            if(leftArr[i]<=rightArr[j]){
+                arr[k] = leftArr[i];
+                i++;
+            }else{
+                arr[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i < leftArrSize){
+            arr[k++] = leftArr[i++];
+        }
+
+        while(j < rightArrSize){
+            arr[k++] = rightArr[j++];
         }
     }
 

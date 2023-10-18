@@ -1,4 +1,5 @@
 package org.example.sorting;
+import java.util.Arrays;
 import java.util.Random;
 
 import org.junit.jupiter.api.DisplayName;
@@ -55,5 +56,41 @@ class IntArraySorterTest {
         assertTrue(isSorted(arr));
 
     }
+
+
+
+    @DisplayName("5. quick sort")
+    @Test
+    void test_5() {
+        int[] arr = generateRandomIntArray(20, 10);
+        quickSort(arr);
+        assertTrue(isSorted(arr));
+    }
+
+
+
+    @DisplayName("6. heap sort")
+    @Test
+    void test_6(){
+        int[] arr = generateRandomIntArray(20,10);
+        heapSort(arr);
+        assertTrue(isSorted(arr));
+        System.out.println(Arrays.toString(arr));
+    }
+
+
+    @DisplayName("7. merge sort")
+    @Test
+    void test_7(){
+        System.out.println("Merge Sort");
+        int[] arr = generateRandomIntArray(20,10);
+        mergeSort(arr);
+        assertTrue(isSorted(arr));
+        System.out.println(Arrays.toString(arr));
+    }
+
+
+
+
 
 }
