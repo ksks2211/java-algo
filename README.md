@@ -1,2 +1,6 @@
 # java-algo
-> basic algorithms in java 
+> basic algorithms in java
+
+
+
+## Sorting
