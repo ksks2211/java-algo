@@ -108,8 +108,6 @@ public class IntArraySorter {
 
         int i = low -1;
 
-//         low ~ i 까지 pivot 보다 작거나 같게
-//         i+1 ~ high-1 까지는 pivot 보다 크게
         for(int j=low; j<high;j++){
             if(arr[j]<=pivot){
                 i++;
@@ -117,9 +115,7 @@ public class IntArraySorter {
             }
         }
 
-//         low ~ i 까지는 pivot 보다 작거나 같게
-//         i+1 은 pivot
-//         i+2 ~ high 는 pivot 보다 크게
+
         swap(arr,i+1,high);
         return i+1;
     }

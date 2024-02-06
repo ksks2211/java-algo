@@ -1,7 +1,5 @@
 package org.example.graph.undirected;
 
-import java.util.HashSet;
-
 /**
  * @author rival
  * @since 2023-10-01
