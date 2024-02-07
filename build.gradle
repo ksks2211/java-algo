@@ -5,7 +5,7 @@ plugins {
 
 
 group = 'com.github.ksks2211'
-version 'v1.0.8'
+version 'v1.0.9'
 
 
 repositories {
@@ -22,6 +22,16 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
 
 test {
     useJUnitPlatform()
