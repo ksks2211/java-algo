@@ -1,10 +1,9 @@
 plugins {
-    id 'java'
-
+    id 'java-library'
 }
 
-group = 'org.example'
-version = '1.0-SNAPSHOT'
+group = 'github.com.ksks2211'
+version '1.0.0'
 
 repositories {
     mavenCentral()
@@ -16,7 +15,10 @@ dependencies {
 }
 
 
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 test {
     useJUnitPlatform()

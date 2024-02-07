@@ -1,4 +1,4 @@
-package org.example.graph.undirected;
+package com.github.ksks2211.graph.undirected;
 
 /**
  * @author rival

@@ -1,12 +1,10 @@
-package org.example.sorting;
+package com.github.ksks2211.sorting;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.example.sorting.IntArraySorter.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author rival
@@ -27,16 +25,16 @@ class IntArraySorterTest {
     @Test
     void test_1() {
         int[] arr= generateRandomIntArray(20,10);
-        selectionSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.selectionSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
     }
 
     @DisplayName("2. insertion sort")
     @Test
     void test_2(){
         int[] arr= generateRandomIntArray(20,10);
-        insertionSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.insertionSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
 
     }
 
@@ -44,16 +42,16 @@ class IntArraySorterTest {
     @Test
     void test_3(){
         int[] arr= generateRandomIntArray(20,10);
-        bubbleSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.bubbleSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
     }
 
     @DisplayName("4. shell sort")
     @Test
     void test_4(){
         int[] arr= generateRandomIntArray(20,10);
-        shellSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.shellSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
 
     }
 
@@ -63,8 +61,8 @@ class IntArraySorterTest {
     @Test
     void test_5() {
         int[] arr = generateRandomIntArray(20, 10);
-        quickSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.quickSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
     }
 
 
@@ -73,8 +71,8 @@ class IntArraySorterTest {
     @Test
     void test_6(){
         int[] arr = generateRandomIntArray(20,10);
-        heapSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.heapSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
         System.out.println(Arrays.toString(arr));
     }
 
@@ -84,8 +82,8 @@ class IntArraySorterTest {
     void test_7(){
         System.out.println("Merge Sort");
         int[] arr = generateRandomIntArray(20,10);
-        mergeSort(arr);
-        assertTrue(isSorted(arr));
+        IntArraySorter.mergeSort(arr);
+        Assertions.assertTrue(IntArraySorter.isSorted(arr));
         System.out.println(Arrays.toString(arr));
     }
 

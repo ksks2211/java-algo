@@ -1,4 +1,4 @@
-package org.example.sorting;
+package com.github.ksks2211.sorting;
 
 import java.util.Arrays;
 
