@@ -1,9 +1,9 @@
 plugins {
-    id 'java-library'
+    id 'java'
 }
 
 group = 'github.com.ksks2211'
-version 'v1.0.1'
+version 'v1.0.2'
 
 repositories {
     mavenCentral()
