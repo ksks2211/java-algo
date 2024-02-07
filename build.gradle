@@ -5,10 +5,8 @@ plugins {
 
 
 group = 'com.github.ksks2211'
-version 'v1.0.6'
+version 'v1.0.7'
 
-sourceCompatibility='17'
-targetCompatibility='17'
 
 repositories {
     mavenCentral()
@@ -16,8 +14,8 @@ repositories {
 
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
